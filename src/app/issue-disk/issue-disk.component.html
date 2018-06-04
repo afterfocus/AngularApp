@@ -1,0 +1,26 @@
+<h3>Выдача диска "{{disk.rusTitle}} ({{disk.engTitle}}) {{disk.releaseYear}} г."</h3>
+<h3>Выберите держателя из списка</h3>
+
+<table class="table" border="1" cellpadding="6" cellspacing="1">
+  <tr>
+    <th>№</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Номер телефона</th>
+  </tr>
+
+  <ng-container *ngFor="let person of persons; let i = index">
+    <tr routerLink="/diskList" (click)="issueDisk(person.personID)">
+      <td>{{i + 1}}</td>
+      <td width="33%">{{person.surname}}</td>
+      <td width="33%">{{person.name}}</td>
+      <td width="28%">{{person.phonenumber}}</td>
+    </tr>
+  </ng-container>
+</table>
+
+<br><br>
+<div class="menu">
+  <a routerLink="/diskList">Отмена</a>
+</div>
+<br><br>

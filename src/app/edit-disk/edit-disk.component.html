@@ -1,0 +1,30 @@
+<h3>Заполните информацию о диске</h3>
+  <form>
+    <table border="0">
+      <tr>
+        <td>Русское название фильма</td>
+        <td width="15px"></td>
+        <td><input type="text" [(ngModel)]="disk.rusTitle" value="{{disk.rusTitle}}" size="50" name="rusTitle" id="rusTitle" title="Русское название фильма"/></td>
+      </tr>
+      <tr>
+        <td>Английское название фильма</td>
+        <td width="15px"></td>
+        <td><input type="text" [(ngModel)]="disk.engTitle" value="{{disk.engTitle}}" size="50" name="engTitle" id="engTitle" title="Английское название фильма"/></td>
+      </tr>
+      <tr>
+        <td>Год выпуска</td>
+        <td width="15px"></td>
+        <td><input type="number" [(ngModel)]="disk.releaseYear" value="{{disk.releaseYear}}" size="50" name="releaseYear" id="releaseYear" title="Год выпуска"/>
+        </td>
+      </tr>
+    </table>
+
+    <br><br>
+    <div class="menu">
+      <a routerLink="/diskList" (click)="editDisk()">Сохранить</a>
+      <a routerLink="/diskList">Отмена</a>
+    </div>
+    <br><br>
+  </form>
+
+

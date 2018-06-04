@@ -1,0 +1,47 @@
+<div class="search">
+  <form method="POST">
+    <input type="search" placeholder="Найти диск..." name="search">
+    <button type="submit"></button>
+  </form>
+</div>
+<br>
+
+<table class="table" border="1" cellpadding="6" cellspacing="1">
+  <tr>
+    <th rowspan="2">№</th>
+    <th rowspan="2">Русское название</th>
+    <th rowspan="2">Английское название</th>
+    <th rowspan="2">Год выпуска</th>
+    <th colspan="4">Выдан</th>
+    <th rowspan="2">Удаление</th>
+  </tr>
+  <tr>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Номер телефона</th>
+    <th>Возврат</th>
+  </tr>
+
+  <tr *ngFor="let disk of disks; let i = index">
+    <td (click)="editDisk(disk)">{{i + 1}}</td>
+    <td (click)="editDisk(disk)">{{disk.rusTitle}}</td>
+    <td (click)="editDisk(disk)">{{disk.engTitle}}</td>
+    <td (click)="editDisk(disk)">{{disk.releaseYear}}</td>
+    <ng-container *ngIf="disk.person != null; else other_content">
+      <td (click)="editPerson(disk.person)">{{disk.person.surname}}</td>
+      <td (click)="editPerson(disk.person)">{{disk.person.name}}</td>
+      <td (click)="editPerson(disk.person)">{{disk.person.phonenumber}}</td>
+      <td align="center">
+        <a (click)="returnDisk(disk)">Вернуть</a>
+      </td>
+    </ng-container>
+    <ng-template #other_content>
+      <td colspan="4" align="center">
+        <a (click)="issueDisk(disk)">Выдать</a>
+      </td>
+    </ng-template>
+    <td align="center">
+      <a (click)="deleteDisk(disk)">Удалить</a>
+    </td>
+  </tr>
+</table>

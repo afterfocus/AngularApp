@@ -1,0 +1,28 @@
+<h3>Заполните информацию о держателе</h3>
+  <form>
+    <table border="0">
+      <tr>
+        <td>Фамилия</td>
+        <td width="15px"></td>
+        <td><input type="text" [(ngModel)]="person.surname"  size="50" name="surname" title="Фамилия"/></td>
+      </tr>
+      <tr>
+        <td>Имя</td>
+        <td width="15px"></td>
+        <td><input type="text" [(ngModel)]="person.name" size="50" name="name" title="Имя"/></td>
+      </tr>
+      <tr>
+        <td>Номер телефона</td>
+        <td width="15px"></td>
+        <td><input type="text" [(ngModel)]="person.phonenumber" size="50" name="phonenumber" title="Номер телефона"/>
+        </td>
+      </tr>
+    </table>
+
+    <br><br>
+    <div class="menu">
+      <a routerLink="/personList" (click)="createPerson()">Сохранить</a>
+      <a routerLink="/personList">Отмена</a>
+    </div>
+    <br><br>
+  </form>

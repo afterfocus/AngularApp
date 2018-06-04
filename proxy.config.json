@@ -1,0 +1,10 @@
+{
+  "/disk/*": {
+    "target": "http://localhost:8081/",
+    "secure": false
+  },
+  "/person/*": {
+    "target": "http://localhost:8081/",
+    "secure": false
+  }
+}

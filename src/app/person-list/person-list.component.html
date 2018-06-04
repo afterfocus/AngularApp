@@ -1,0 +1,38 @@
+<div class="search">
+  <form method="POST">
+    <input type="search" placeholder="Найти держателя..." name="search">
+    <button type="submit"></button>
+  </form>
+</div>
+<br>
+
+<table class="table" border="1" cellpadding="6" cellspacing="1">
+
+  <tr>
+    <th>№</th>
+    <th>Фамилия</th>
+    <th>Имя</th>
+    <th>Номер телефона</th>
+    <th>Выдано дисков</th>
+    <th>Удаление</th>
+  </tr>
+
+    <tr *ngFor="let person of persons; let i = index">
+      <td (click)="editPerson(person)">{{i + 1}}</td>
+      <td (click)="editPerson(person)" width="20%">{{person.surname}}</td>
+      <td (click)="editPerson(person)" width="20%">{{person.name}}</td>
+      <td (click)="editPerson(person)">{{person.phonenumber}}</td>
+      <ng-container *ngIf="person.issuedDisks != '0'; else other_content">
+          <td align="center">
+            <a (click)="showDisks(person)">{{person.issuedDisks}}</a>
+          </td>
+          <td></td>
+      </ng-container>
+      <ng-template #other_content>
+          <td align="center">Нет дисков</td>
+          <td align="center">
+            <a (click)="deletePerson(person)">Удалить</a>
+          </td>
+      </ng-template>
+    </tr>
+</table>
